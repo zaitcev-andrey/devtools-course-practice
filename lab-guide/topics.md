@@ -49,7 +49,7 @@
 | RB деревья | | |
 | Множества | | |
 | Priority queue | | |
-| d-куча | | |
+| d-куча |Гогов В.И. 381806-1| |
 | hashmap | | |
 | template binary heap | | |
 | Fibonacci heap | | |
