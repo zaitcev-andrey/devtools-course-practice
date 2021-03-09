@@ -95,5 +95,5 @@
 | [Реализовать печать цифр в псевдографике](https://github.com/garora/TDD-Katas/blob/master/KatasReadme.md#lcd-digits-) | | |
 | Поиск в тексте регулярных выражений (упрощенные) | | |
 | [Ипотечный калькулятор](http://calculator-ipoteka.ru/calculator.php) | | |
-| [Калькулятор доходности вкладов](http://www.banki.ru/services/calculators/deposits/) | | |
+| [Калькулятор доходности вкладов](http://www.banki.ru/services/calculators/deposits/) |Лебедев А.В. 381803-2 | |
 | Игра "Быки и коровы" |Колесников Г.Р. 381803-2 | |
