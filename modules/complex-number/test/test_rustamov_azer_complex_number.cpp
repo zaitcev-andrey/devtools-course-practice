@@ -54,7 +54,7 @@ TEST_P(Rustamov_Azer_ComplexNumberTest_Parametrized,
 }
 
 INSTANTIATE_TEST_CASE_P(/**/, Rustamov_Azer_ComplexNumberTest_Parametrized,
-    testing::Combine(
-  testing::Values(1.0, 3.0, 2.5, -7.0),
-  testing::Values(9.0, -2.0, 1.4, 0.2)
+    testing::Values(
+  std::make_tuple(1.0, 3.0),
+  std::make_tuple(9.0, -2.0)
 ));
