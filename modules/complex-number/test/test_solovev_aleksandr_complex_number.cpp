@@ -8,7 +8,7 @@
 TEST(Solovev_Aleksandr_ComplexNumberTest, Test_Equal) {
     ComplexNumber c1(7.0, 10.0);
 
-    EXPECT_EQ(c1, c1);
+    ASSERT_EQ(c1, c1);
 }
 
 TEST(Solovev_Aleksandr_ComplexNumberTest, Test_NoEqual) {
@@ -16,7 +16,7 @@ TEST(Solovev_Aleksandr_ComplexNumberTest, Test_NoEqual) {
     ComplexNumber c2(11.2, 17.1);
     ComplexNumber c3(c2);
 
-    EXPECT_NE(c1, c3);
+    ASSERT_NE(c1, c3);
 }
 
 typedef testing::TestWithParam<std::tuple<double, double, double, double>>
@@ -33,8 +33,8 @@ TEST_P(Solovev_Aleksandr_ComplexNumberTest_Parametrized, Test_Multiply) {
     ComplexNumber c2(re2, im2);
     ComplexNumber result = c1 * c2;
 
-    EXPECT_EQ(resultRe, result.getRe());
-    EXPECT_EQ(resultIm, result.getIm());
+    ASSERT_EQ(resultRe, result.getRe());
+    ASSERT_EQ(resultIm, result.getIm());
 };
 
 INSTANTIATE_TEST_CASE_P(/**/, Solovev_Aleksandr_ComplexNumberTest_Parametrized,

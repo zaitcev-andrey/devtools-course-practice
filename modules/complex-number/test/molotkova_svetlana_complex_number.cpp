@@ -9,8 +9,8 @@ TEST(Molotkova_Svetlana_ComplexNumberTesting, Pow) {
     ComplexNumber a2(a1);
     ComplexNumber rres = a1*a2;
     ComplexNumber eres(-5.0, 12.0);
-    EXPECT_EQ(rres.getRe(), eres.getRe());
-    EXPECT_EQ(rres.getIm(), eres.getIm());
+    ASSERT_EQ(rres.getRe(), eres.getRe());
+    ASSERT_EQ(rres.getIm(), eres.getIm());
 }
 TEST(Molotkova_Svetlana_ComplexNumberTesting, Multiply_by_number) {
     ComplexNumber a(2.0, -7.0);
@@ -18,7 +18,7 @@ TEST(Molotkova_Svetlana_ComplexNumberTesting, Multiply_by_number) {
     double b2 = 3.0;
     ComplexNumber rres = a*b1;
     ComplexNumber eres(a.getRe()*b2, a.getIm()*b2);
-    EXPECT_EQ(rres, eres);
+    ASSERT_EQ(rres, eres);
 }
 
 TEST(Molotkova_Svetlana_ComplexNumberTesting, No_Exeption) {
@@ -26,5 +26,5 @@ TEST(Molotkova_Svetlana_ComplexNumberTesting, No_Exeption) {
     ComplexNumber a2(7.0, 1.0);
     ComplexNumber a3(0.32, 1.24);
     ASSERT_NO_THROW(a1 / a2);
-    EXPECT_EQ(a1 / a2, a3);
+    ASSERT_EQ(a1 / a2, a3);
 }

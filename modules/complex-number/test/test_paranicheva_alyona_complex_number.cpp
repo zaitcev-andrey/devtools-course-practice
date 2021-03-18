@@ -10,7 +10,7 @@ TEST(Paranicheva_Alyona_ComplexNumberTest, Module) {
     ComplexNumber z(6.0, -8.0);
 
     double resmodule = hypot(z.getRe(), z.getIm());
-    EXPECT_DOUBLE_EQ(10.0, resmodule);
+    ASSERT_DOUBLE_EQ(10.0, resmodule);
 }
 
 TEST(Paranicheva_Alyona_ComplexNumberTest, Module_Addition) {
@@ -21,7 +21,7 @@ TEST(Paranicheva_Alyona_ComplexNumberTest, Module_Addition) {
     double resmodule2 = hypot(z2.getRe(), z2.getIm());
     double sum = resmodule1 + resmodule2;
 
-    EXPECT_DOUBLE_EQ(15.0, sum);
+    ASSERT_DOUBLE_EQ(15.0, sum);
 }
 
 TEST(Paranicheva_Alyona_ComplexNumberTest, Module_Subtraction) {
@@ -32,5 +32,5 @@ TEST(Paranicheva_Alyona_ComplexNumberTest, Module_Subtraction) {
     double resmodule2 = hypot(z2.getRe(), z2.getIm());
     double sub = resmodule1 - resmodule2;
 
-    EXPECT_DOUBLE_EQ(5.0, sub);
+    ASSERT_DOUBLE_EQ(5.0, sub);
 }

@@ -14,7 +14,7 @@ TEST(Belik_Julia_ComplexNumberTest, Can_Copy) {
     bool c = a == b;
 
     // Assert
-    EXPECT_TRUE(c);
+    ASSERT_TRUE(c);
 }
 TEST(Belik_Julia_ComplexNumberTest, Test_Division_Zero_Im) {
     // Arrange
@@ -27,8 +27,8 @@ TEST(Belik_Julia_ComplexNumberTest, Test_Division_Zero_Im) {
     ComplexNumber c = a / b;
 
     // Assert
-    EXPECT_EQ(re, c.getRe());
-    EXPECT_EQ(im, c.getIm());
+    ASSERT_EQ(re, c.getRe());
+    ASSERT_EQ(im, c.getIm());
 }
 typedef testing::TestWithParam<std::tuple<double, double>>
 Belik_Julia_ComplexNumberTest_Param;
@@ -43,7 +43,7 @@ TEST_P(Belik_Julia_ComplexNumberTest_Param, Test_Equal) {
     bool c = a == b;
 
     // Assert
-    EXPECT_TRUE(c);
+    ASSERT_TRUE(c);
 }
 INSTANTIATE_TEST_CASE_P(/**/, Belik_Julia_ComplexNumberTest_Param,
     testing::Combine(
