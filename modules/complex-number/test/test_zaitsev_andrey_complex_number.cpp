@@ -7,7 +7,6 @@
 TEST(Zaitsev_Andrey_ComplexNumberTest, Double_check) {
   double re = 23.42;
   double im = 6.23;
-  
   ComplexNumber num(re, im);
 
   ASSERT_EQ(num.getRe(), re);
@@ -25,7 +24,6 @@ TEST(Zaitsev_Andrey_ComplexNumberTest, Arifm_Operations_Test) {
   ComplexNumber answer(66.0, 84.0);
 
   ComplexNumber result = (num1 / num2) * (num3 + num4);
-    
   ASSERT_EQ(answer.getRe(), result.getRe());
   ASSERT_EQ(answer.getIm(), result.getIm());
 }
@@ -50,5 +48,4 @@ INSTANTIATE_TEST_CASE_P(/**/, Zaitsev_Andrey_ComplexNumberTest_Param,
     testing::Values(10.0, 5.0),
     testing::Values(4.0, 8.0),
     testing::Values(7.0, 9.0),
-    testing::Values(8.0, 12.0)
-  ));
+    testing::Values(8.0, 12.0)));
