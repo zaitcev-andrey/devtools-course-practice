@@ -22,8 +22,8 @@ TEST(Taktaev_Artem_ComplexNumberTest, dividing_and_mult_work_in_pair) {
     ComplexNumber c2(-0.6, 1.9);
     ComplexNumber c3 = c1 * c2 / c2;
 
-    EXPECT_DOUBLE_EQ(re1, c3.getRe());
-    EXPECT_DOUBLE_EQ(im1, c3.getIm());
+    ASSERT_DOUBLE_EQ(re1, c3.getRe());
+    ASSERT_DOUBLE_EQ(im1, c3.getIm());
 }
 
 TEST(Taktaev_Artem_ComplexNumberTest, both_constructors_creates_same_objects) {
