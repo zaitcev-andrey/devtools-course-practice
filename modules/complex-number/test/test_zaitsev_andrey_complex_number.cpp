@@ -9,17 +9,15 @@ TEST(Zaitsev_Andrey_ComplexNumberTest, Double_check) {
   double im = 6.23;
   ComplexNumber num(re, im);
 
-  ASSERT_EQ(num.getRe(), re);
-  ASSERT_EQ(num.getIm(), im);
+  ASSERT_EQ(re, num.getRe());
+  ASSERT_EQ(im, num.getIm());
 }
 
 TEST(Zaitsev_Andrey_ComplexNumberTest, Arifm_Operations_Test) {
-  double re1 = 12.0, re2 = 2.0, re3 = 8.0, re4 = 3.0;
-  double im1 = 12.0, im2 = 2.0, im3 = 10.0, im4 = 4.0;
-  ComplexNumber num1(re1, im1);
-  ComplexNumber num2(re2, im2);
-  ComplexNumber num3(re3, im3);
-  ComplexNumber num4(re4, im4);
+  ComplexNumber num1(12.0, 12.0);
+  ComplexNumber num2(2.0, 2.0);
+  ComplexNumber num3(8.0, 10.0);
+  ComplexNumber num4(3.0, 4.0);
 
   ComplexNumber answer(66.0, 84.0);
 
@@ -45,7 +43,7 @@ TEST_P(Zaitsev_Andrey_ComplexNumberTest_Param, Add_And_Sub_Operations_Test) {
 
 INSTANTIATE_TEST_CASE_P(/**/, Zaitsev_Andrey_ComplexNumberTest_Param,
   testing::Combine(
-    testing::Values(10.0, 5.0),
-    testing::Values(4.0, 8.0),
-    testing::Values(7.0, 9.0),
-    testing::Values(8.0, 12.0)));
+    testing::Values(10.21, 5.3),
+    testing::Values(4.6, 8.44),
+    testing::Values(7.5, 9.7),
+    testing::Values(8.8, 12.2)));
