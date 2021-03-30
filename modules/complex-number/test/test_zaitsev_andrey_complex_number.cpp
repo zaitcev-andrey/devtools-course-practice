@@ -6,13 +6,19 @@
 
 #include "include/complex_number.h"
 
-TEST(Zaitsev_Andrey_ComplexNumberTest, Double_check) {
+TEST(Zaitsev_Andrey_ComplexNumberTest, Get_And_Set_Check) {
   double re = 23.42;
   double im = 6.23;
-  ComplexNumber num(re, im);
+  ComplexNumber num1(re, im);
+  ComplexNumber num2(num1.getRe(), num1.getIm());
+  ComplexNumber num3 = ComplexNumber();
+  num3.setRe(re);
+  num3.setIm(im);
 
-  ASSERT_EQ(re, num.getRe());
-  ASSERT_EQ(im, num.getIm());
+  ASSERT_EQ(num1.getRe(), num2.getRe());
+  ASSERT_EQ(num1.getIm(), num2.getIm());
+  ASSERT_EQ(num1.getRe(), num3.getRe());
+  ASSERT_EQ(num1.getIm(), num3.getIm());
 }
 
 TEST(Zaitsev_Andrey_ComplexNumberTest, Arifm_Operations_Test) {
@@ -44,8 +50,8 @@ TEST_P(Zaitsev_Andrey_ComplexNumberTest_Param, Add_And_Sub_Operations_Test) {
 }
 
 INSTANTIATE_TEST_CASE_P(/**/, Zaitsev_Andrey_ComplexNumberTest_Param,
-  testing::Combine(
-    testing::Values(10.21, 5.3),
-    testing::Values(4.6, 8.44),
-    testing::Values(7.5, 9.7),
-    testing::Values(8.8, 12.2)));
+  testing::Values(
+    std::make_tuple(10.21, 5.3, 6.5, 7.0),
+    std::make_tuple(4.6, 8.44, 4.0, 2.5),
+    std::make_tuple(7.5, 9.7, 5.5, 9.0),
+    std::make_tuple(8.8, 12.2, 1.5, 6.0)));
