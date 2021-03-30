@@ -1,7 +1,9 @@
 // Copyright 2021 Zaitsev Andrey
 
 #include <gtest/gtest.h>
+
 #include <tuple>
+
 #include "include/complex_number.h"
 
 TEST(Zaitsev_Andrey_ComplexNumberTest, Double_check) {
