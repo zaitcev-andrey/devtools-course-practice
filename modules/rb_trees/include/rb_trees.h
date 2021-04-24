@@ -56,6 +56,8 @@ class RBTree {
     bool findNode(const int value);
     void insertNode(Node *node);
     void removeNode(const int value);
+
+    void removingNodes(const std::vector<int>& vec, int i = 0);
 };
 
 #endif  // MODULES_RB_TREES_INCLUDE_RB_TREES_H_

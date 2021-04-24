@@ -119,6 +119,15 @@ TEST(RBTreeTest, Removing_All_Nodes_In_a_Tree) {
     ASSERT_EQ(static_cast<unsigned int>(0), tree.getNodesNumber());
 }
 
+TEST(RBTreeTest, Removing_All_Nodes_In_a_Tree_Recursion) {
+    std::vector<int> vec = {14, 4, 7, -8, 34, 2, -17};
+    RBTree tree(vec);
+
+    tree.removingNodes(vec);
+
+    ASSERT_EQ(static_cast<unsigned int>(0), tree.getNodesNumber());
+}
+
 TEST(RBTreeTest, Operations_With_Large_Tree) {
     std::vector<int> vec;
 

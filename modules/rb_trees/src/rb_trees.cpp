@@ -169,6 +169,14 @@ void RBTree::removeNode(const int value) {
     nodes_number--;
 }
 
+void RBTree::removingNodes(const std::vector<int>& vec, int i) {
+    if (getNodesNumber() != 0) {
+        removeNode(vec[i]);
+        i++;
+        removingNodes(vec, i);
+    }
+}
+
 void RBTree::shuffle_for_insert(Node *node) {
     while (node->parent->color == RED) {
         if (node->parent == node->parent->parent->left) {
