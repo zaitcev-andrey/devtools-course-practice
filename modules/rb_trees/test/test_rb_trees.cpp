@@ -13,9 +13,10 @@ TEST(RBTreeNodeTest, Create_Node_Default_Constructor) {
 }
 
 TEST(RBTreeNodeTest, Create_Node_Copy_Constructor) {
-    Node node;
+    Node node1(5);
+    Node node2(node1);
 
-    ASSERT_NO_THROW(Node(node));
+    ASSERT_TRUE(node1 == node2);
 }
 
 TEST(RBTreeNodeTest, Assignment_Of_Nodes) {
