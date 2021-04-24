@@ -6,8 +6,6 @@
 #include <vector>
 #include <stack>
 
-#include <iostream>
-
 #define RED true
 #define BLACK false
 
@@ -26,8 +24,6 @@ struct Node {
 
     bool operator==(const Node& node);
     bool operator!=(const Node& node);
-
-    friend std::ostream& operator<<(std::ostream& out, const Node& node);
 };
 
 class RBTree {

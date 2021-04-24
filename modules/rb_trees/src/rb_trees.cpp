@@ -43,11 +43,6 @@ bool Node::operator!=(const Node& node) {
     return !(*this == node);
 }
 
-std::ostream& operator<<(std::ostream& out, const Node& node) {
-    out << "Node(" << node.value << ", " << node.color << ")";
-    return out;
-}
-
 RBTree::RBTree() {
     NIL = new Node();
     root = NIL;

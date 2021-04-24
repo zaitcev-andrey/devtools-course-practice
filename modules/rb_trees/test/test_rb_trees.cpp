@@ -3,7 +3,6 @@
 #include <gtest/gtest.h>
 
 #include <random>
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -35,12 +34,6 @@ TEST(RBTreeNodeTest, Different_Nodes_Are_Not_Equal) {
     Node node1(1), node2(2);
 
     ASSERT_TRUE(node1 != node2);
-}
-
-TEST(RBTreeNodeTest, Print_Node) {
-    Node node;
-
-    ASSERT_NO_THROW(std::cout << node << std::endl;);
 }
 
 TEST(RBTreeTest, Create_Tree_Default_Constructor) {
