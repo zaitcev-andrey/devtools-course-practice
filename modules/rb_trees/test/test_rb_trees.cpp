@@ -52,6 +52,13 @@ TEST(RBTreeTest, Create_Tree_from_Vector) {
     ASSERT_NO_THROW(RBTree(vec));
 }
 
+TEST(RBTreeTest, Copy_Constructor_Does_Not_Throw_Any_Exceptions) {
+    std::vector<int> vec = {0, 1, 2};
+    RBTree tree(vec);
+
+    ASSERT_NO_THROW(RBTree(tree));
+}
+
 TEST(RBTreeTest, Get_Nodes_Number) {
     Node *node = new Node(5);
     RBTree tree(node);

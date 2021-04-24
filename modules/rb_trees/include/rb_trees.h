@@ -50,6 +50,7 @@ class RBTree {
     RBTree();
     explicit RBTree(Node *node);
     explicit RBTree(const std::vector<int>& vec);
+    RBTree(const RBTree& tree) = default;
 
     unsigned int getNodesNumber() const;
 
