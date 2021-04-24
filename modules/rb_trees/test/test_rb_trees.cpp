@@ -142,6 +142,16 @@ TEST(RBTreeTest, Removing_All_Nodes_In_a_Tree) {
     ASSERT_EQ(static_cast<unsigned int>(0), tree.getNodesNumber());
 }
 
+TEST(RBTreeTest, Create_And_Remove_Node_In_a_Tree) {
+    std::vector<int> vec = {3, 5, 7};
+    RBTree tree(vec);
+    int value = 6;
+
+    tree.add_and_remove(6);
+
+    ASSERT_EQ(static_cast<unsigned int>(3), tree.getNodesNumber());
+}
+
 TEST(RBTreeTest, Operations_With_Large_Tree) {
     std::vector<int> vec;
 

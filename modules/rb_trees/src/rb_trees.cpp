@@ -182,6 +182,14 @@ void RBTree::removeNode(const int value) {
     nodes_number--;
 }
 
+int RBTree::add_and_remove(int value) {
+    Node* node = new Node(value);
+    insertNode(node);
+    removeNode(value);
+
+    return getNodesNumber();
+}
+
 void RBTree::Begin() {
     while (!node_stack.empty())
         node_stack.pop();

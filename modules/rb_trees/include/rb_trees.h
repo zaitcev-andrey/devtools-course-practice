@@ -63,6 +63,8 @@ class RBTree {
     void insertNode(Node *node);
     void removeNode(const int value);
 
+    int add_and_remove(int value);
+
     void Begin();
     bool End() const;
     void Next();
