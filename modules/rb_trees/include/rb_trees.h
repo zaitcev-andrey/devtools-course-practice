@@ -3,6 +3,9 @@
 #ifndef MODULES_RB_TREES_INCLUDE_RB_TREES_H_
 #define MODULES_RB_TREES_INCLUDE_RB_TREES_H_
 
+#include <vector>
+#include <stack>
+
 #include <iostream>
 
 #define RED true
@@ -25,6 +28,44 @@ struct Node {
     bool operator!=(const Node& node);
 
     friend std::ostream& operator<<(std::ostream& out, const Node& node);
+};
+
+class RBTree {
+    Node *NIL;
+    Node *root;
+    Node *current;
+
+    unsigned int nodes_number;
+    unsigned int counter;
+
+    std::stack<Node*> node_stack;
+
+    void shuffle_for_insert(Node *node);
+
+    void left_rotate(Node* x);
+    void right_rotate(Node* x);
+
+    void transplant(Node *x, Node *y);
+    void shuffle_for_remove(Node *node);
+
+    Node* get_minimum(Node * const node);
+
+ public:
+    RBTree();
+    explicit RBTree(Node *node);
+    explicit RBTree(const std::vector<int>& vec);
+
+    Node* getRoot() const;
+    Node* getCurrent() const;
+    unsigned int getNodesNumber() const;
+
+    bool findNode(const int value);
+    void insertNode(Node *node);
+    void removeNode(const int value);
+
+    void Begin();
+    bool End() const;
+    void Next();
 };
 
 #endif  // MODULES_RB_TREES_INCLUDE_RB_TREES_H_
