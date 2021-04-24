@@ -76,14 +76,6 @@ RBTree::RBTree(const std::vector<int>& vec) {
     }
 }
 
-Node* RBTree::getRoot() const {
-    return root;
-}
-
-Node* RBTree::getCurrent() const {
-    return current;
-}
-
 unsigned int RBTree::getNodesNumber() const {
     return nodes_number;
 }
@@ -175,51 +167,6 @@ void RBTree::removeNode(const int value) {
         shuffle_for_remove(x);
 
     nodes_number--;
-}
-
-int RBTree::add_and_remove(int value) {
-    Node* node = new Node(value);
-    insertNode(node);
-    removeNode(value);
-
-    return getNodesNumber();
-}
-
-void RBTree::Begin() {
-    while (!node_stack.empty())
-        node_stack.pop();
-
-    counter = 0;
-    current = root;
-
-    while (current->left != NIL) {
-        node_stack.push(current);
-        current = current->left;
-    }
-    node_stack.push(current);
-}
-
-bool RBTree::End() const {
-    return (counter == nodes_number);
-}
-
-void RBTree::Next() {
-    if (!node_stack.empty())
-        node_stack.pop();
-
-    if (current->right != NIL) {
-        current = current->right;
-
-        while (current->left != NIL) {
-            node_stack.push(current);
-            current = current->left;
-        }
-        node_stack.push(current);
-    } else if (!node_stack.empty()) {
-        current = node_stack.top();
-    }
-
-    counter++;
 }
 
 void RBTree::shuffle_for_insert(Node *node) {

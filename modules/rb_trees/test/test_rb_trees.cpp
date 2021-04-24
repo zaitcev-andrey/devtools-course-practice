@@ -52,22 +52,6 @@ TEST(RBTreeTest, Create_Tree_from_Vector) {
     ASSERT_NO_THROW(RBTree(vec));
 }
 
-TEST(RBTreeTest, Get_Root) {
-    Node *node = new Node(5);
-    RBTree tree(node);
-
-    ASSERT_EQ(5, tree.getRoot()->value);
-}
-
-TEST(RBTreeTest, Get_Current) {
-    Node *node = new Node(5);
-    RBTree tree(node);
-
-    tree.Begin();
-
-    ASSERT_EQ(5, tree.getCurrent()->value);
-}
-
 TEST(RBTreeTest, Get_Nodes_Number) {
     Node *node = new Node(5);
     RBTree tree(node);
@@ -135,16 +119,6 @@ TEST(RBTreeTest, Removing_All_Nodes_In_a_Tree) {
     ASSERT_EQ(static_cast<unsigned int>(0), tree.getNodesNumber());
 }
 
-TEST(RBTreeTest, Create_And_Remove_Node_In_a_Tree) {
-    std::vector<int> vec = {3, 5, 7};
-    RBTree tree(vec);
-    int value = 6;
-
-    tree.add_and_remove(6);
-
-    ASSERT_EQ(static_cast<unsigned int>(3), tree.getNodesNumber());
-}
-
 TEST(RBTreeTest, Operations_With_Large_Tree) {
     std::vector<int> vec;
 
@@ -157,11 +131,6 @@ TEST(RBTreeTest, Operations_With_Large_Tree) {
     RBTree tree(vec);
 
     auto several_tree_operations = [&tree, &vec, &reng] {
-        for (tree.Begin(); !tree.End(); tree.Next())
-            Node *node = tree.getCurrent();
-
-        std::shuffle(vec.begin(), vec.end(), reng);
-
         for (auto i = vec.begin(); i < vec.end(); ++i)
             tree.removeNode(*i);
     };

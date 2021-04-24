@@ -51,19 +51,11 @@ class RBTree {
     explicit RBTree(Node *node);
     explicit RBTree(const std::vector<int>& vec);
 
-    Node* getRoot() const;
-    Node* getCurrent() const;
     unsigned int getNodesNumber() const;
 
     bool findNode(const int value);
     void insertNode(Node *node);
     void removeNode(const int value);
-
-    int add_and_remove(int value);
-
-    void Begin();
-    bool End() const;
-    void Next();
 };
 
 #endif  // MODULES_RB_TREES_INCLUDE_RB_TREES_H_
