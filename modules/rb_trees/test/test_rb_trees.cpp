@@ -121,8 +121,8 @@ TEST(RBTreeTest, Removing_All_Nodes_In_a_Tree) {
     std::vector<int> vec = {22, 14, 6, -12, 27, 1, -19};
     RBTree tree(vec);
 
-    for (auto i = vec.begin(); i < vec.end(); i++)
-        tree.removeNode(*i);
+    for (int i : vec)
+        tree.removeNode(i);
 
     ASSERT_EQ(static_cast<unsigned int>(0), tree.getNodesNumber());
 }
@@ -148,8 +148,8 @@ TEST(RBTreeTest, Operations_With_Large_Tree) {
     RBTree tree(vec);
 
     auto several_tree_operations = [&tree, &vec, &reng] {
-        for (auto i = vec.begin(); i < vec.end(); ++i)
-            tree.removeNode(*i);
+        for (int i : vec)
+            tree.removeNode(i);
     };
 
     ASSERT_NO_THROW(several_tree_operations());

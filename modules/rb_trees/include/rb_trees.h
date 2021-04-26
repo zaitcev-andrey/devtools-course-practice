@@ -38,8 +38,8 @@ class RBTree {
 
     void shuffle_for_insert(Node *node);
 
-    void left_rotate(Node* x);
-    void right_rotate(Node* x);
+    void left_rotate(Node *x);
+    void right_rotate(Node *x);
 
     void transplant(Node *x, Node *y);
     void shuffle_for_remove(Node *node);
