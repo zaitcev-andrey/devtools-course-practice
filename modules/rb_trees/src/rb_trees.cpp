@@ -61,10 +61,17 @@ RBTree::RBTree(const std::vector<int>& vec) {
     nodes_number = 0;
     counter = 0;
 
-    for (size_t i = 0; i < vec.size(); i++) {
-        Node *node = new Node(vec[i]);
+    for (int i : vec) {
+        Node *node = new Node(i);
+        nodes_ptr.emplace_back(node);
         insertNode(node);
     }
+}
+
+RBTree::~RBTree() {
+    delete NIL;
+    for (size_t i = 0; i < nodes_ptr.size(); i++)
+        delete nodes_ptr[i];
 }
 
 unsigned int RBTree::getNodesNumber() const {

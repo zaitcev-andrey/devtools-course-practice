@@ -34,6 +34,7 @@ class RBTree {
     unsigned int nodes_number;
     unsigned int counter;
 
+    std::vector<Node*> nodes_ptr;
     std::stack<Node*> node_stack;
 
     void shuffle_for_insert(Node *node);
@@ -51,6 +52,7 @@ class RBTree {
     explicit RBTree(Node *node);
     explicit RBTree(const std::vector<int>& vec);
     RBTree(const RBTree& tree) = default;
+    ~RBTree();
 
     unsigned int getNodesNumber() const;
 
