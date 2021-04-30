@@ -258,7 +258,7 @@ TEST(queue_test, to_string_equal) {
     ASSERT_EQ(true, str_queue_1 == str_queue_2);
 }
 
-TEST(DISABLED_queue_test, not_empty_equals_not_empty) {
+TEST(queue_test, not_empty_equals_not_empty) {
     Queue *testing_queue_1 = new Queue();
     Queue *testing_queue_2 = new Queue();
     const double value_1 = 2.5;
@@ -272,10 +272,5 @@ TEST(DISABLED_queue_test, not_empty_equals_not_empty) {
     testing_queue_2->append(value_3);
     testing_queue_2->append(value_4);
 
-    *testing_queue_1 = *testing_queue_2;
-
-    const std::string str_queue_1 = testing_queue_1->toStringData();
-    const std::string str_queue_2 = testing_queue_2->toStringData();
-
-    ASSERT_EQ(true, str_queue_1 == str_queue_2);
+    ASSERT_NO_THROW(*testing_queue_1 = *testing_queue_2);
 }
