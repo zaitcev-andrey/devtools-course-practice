@@ -258,7 +258,7 @@ TEST(queue_test, to_string_equal) {
     ASSERT_EQ(true, str_queue_1 == str_queue_2);
 }
 
-TEST(queue_test, not_empty_equals_not_empty) {
+TEST(queue_test, not_empty_equals_not_empty_CRASH_TEST) {
     Queue *testing_queue_1 = new Queue();
     Queue *testing_queue_2 = new Queue();
     const double value_1 = 2.5;
@@ -272,5 +272,12 @@ TEST(queue_test, not_empty_equals_not_empty) {
     testing_queue_2->append(value_3);
     testing_queue_2->append(value_4);
 
-    ASSERT_NO_THROW(*testing_queue_1 = *testing_queue_2);
+    for (size_t i = 0; i < 100; i++) {
+        *testing_queue_1 = *testing_queue_2;
+        *testing_queue_1 = *testing_queue_2;
+        *testing_queue_2 = *testing_queue_1;
+        *testing_queue_2 = *testing_queue_1;
+    }
+
+    ASSERT_NO_THROW(*testing_queue_1 = *testing_queue_2;);
 }
