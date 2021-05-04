@@ -12,11 +12,22 @@ TEST(TrianglePoint, Can_Create_Triangle) {
     ASSERT_NO_THROW(Triangle(a, b, c));
 }
 
-TEST(TrianglePoint, Point_In) {
+TEST(TrianglePoint, Point_In1) {
     std::pair<double, double>  a(0, 5);
     std::pair<double, double>  b(5, 0);
     std::pair<double, double>  c(0, 0);
     std::pair<double, double>  x(1, 1);
+    bool tmp;
+    Triangle tr(a, b, c);
+    tmp = tr.isInside(x);
+    ASSERT_EQ(true, tmp);
+}
+
+TEST(TrianglePoint, Point_In2) {
+    std::pair<double, double>  a(0, 0);
+    std::pair<double, double>  b(5, 5);
+    std::pair<double, double>  c(0, -5);
+    std::pair<double, double>  x(1, 0.5);
     bool tmp;
     Triangle tr(a, b, c);
     tmp = tr.isInside(x);
