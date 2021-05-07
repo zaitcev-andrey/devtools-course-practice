@@ -16,7 +16,7 @@ std::string MergeSortApplication::help(const std::string& filename) const {
         "Where <size_of_vector> is one integer positive number, " \
         "equal to the power of two (this is " \
         "size of vector),\n<elements_of_vector> are sequence " \
-        "of numbers of a vector (the count of numbers must be\n" \
+        "of numbers of a vector (!the count of numbers must be\n" \
         "equal to the power of two: 2, 4, 8, 16 ...)\n" \
         "Example1: " + filename + " 8\n" \
         "Example2: " + filename + " -20 4 14 -8 12 45 10 -5\n";
