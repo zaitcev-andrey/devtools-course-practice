@@ -56,15 +56,11 @@ std::string MergeSortApplication::operator()(int argc,
             if (!checkDegreeOfTwo(size))
                 throw std::runtime_error("ERROR: " + std::string(argv[1]) +
                     " is not equal of degree of two\n\n");
-            std::vector<double> vec = MergeSort::createRandomVector(size);
-            std::vector<double> vec_copy = vec;
+            std::vector<double> vec(size);
+            for (int i = 0; i < size; i++)
+                vec[i] = size - i;
             MergeSort::OddEvenMergeSort(&vec, 0, size - 1);
             std::ostringstream stream;
-            stream << "Source vector: ";
-            for (size_t i = 0; i < vec_copy.size(); i++) {
-                stream << vec_copy[i] << " ";
-            }
-            stream << std::endl;
             stream << "Sorted vector: ";
             for (size_t i = 0; i < vec.size(); i++) {
                 stream << vec[i] << " ";

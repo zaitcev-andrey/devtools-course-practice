@@ -52,6 +52,22 @@ set_tests_properties (${prefix}_can_Detect_Wrong_Size_Of_Vector3 PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
+    NAME ${prefix}_can_With_Valid_Size_Argument
+    COMMAND ${APPLICATION} 8
+)
+set_tests_properties (${prefix}_can_With_Valid_Size_Argument PROPERTIES
+    PASS_REGULAR_EXPRESSION "Sorted vector: 1 2 3 4 5 6 7 8"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Count_Of_Numbers_Of_Vector
+    COMMAND ${APPLICATION} 6 4 16
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Count_Of_Numbers_Of_Vector PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: count of numbers is not equal of degree of two"
+    LABELS "${MODULE}")
+
+add_test(
     NAME ${prefix}_can_With_Valid_Arguments_1
     COMMAND ${APPLICATION} -5 6 24 -15
 )
