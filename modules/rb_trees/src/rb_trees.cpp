@@ -17,6 +17,15 @@ Node::Node(const Node& node) {
     parent = new Node();
 }
 
+Node::~Node() {
+    delete left;
+    left = nullptr;
+    delete right;
+    right = nullptr;
+    delete parent;
+    parent = nullptr;
+}
+
 Node& Node::operator=(const Node& node) {
     if (this == &node)
         return *this;
@@ -69,15 +78,8 @@ RBTree::RBTree(const std::vector<int>& vec) {
 
     for (int i : vec) {
         Node *node = new Node(i);
-        nodes_ptr.emplace_back(node);
         insertNode(node);
     }
-}
-
-RBTree::~RBTree() {
-    delete NIL;
-    for (size_t i = 0; i < nodes_ptr.size(); i++)
-        delete nodes_ptr[i];
 }
 
 unsigned int RBTree::getNodesNumber() const {
