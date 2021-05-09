@@ -35,7 +35,6 @@ class RBTree {
     unsigned int nodes_number;
     unsigned int counter;
 
-    std::vector<Node*> nodes_ptr;
     std::stack<Node*> node_stack;
 
     void shuffle_for_insert(Node *node);
