@@ -26,9 +26,9 @@ TEST(RBTreeNodeTest, Assignment_Of_Nodes) {
 }
 
 TEST(RBTreeNodeTest, Assignment_Of_Equal_Nodes) {
-    Node node1(1, BLACK), node2(1, BLACK);
+    Node node1(1, BLACK);
 
-    ASSERT_NO_THROW(node1 = node2);
+    ASSERT_NO_THROW(node1 = node1);
 }
 
 TEST(RBTreeNodeTest, Same_Nodes_Are_Equal) {
