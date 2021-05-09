@@ -9,22 +9,28 @@ Node::Node(int _value, bool _color, Node *_left, Node *_right,
     Node *_parent) : value(_value), color(_color), left(_left),
     right(_right), parent(_parent) {}
 
-Node::Node(const Node& node) : value(node.value), color(node.color),
-left(node.left), right(node.right), parent(node.parent) {}
-
-Node& Node::operator=(const Node& node) {
+Node::Node(const Node& node) {
     value = node.value;
     color = node.color;
-    left = node.left;
-    right = node.right;
-    parent = node.parent;
+    left = new Node();
+    right = new Node();
+    parent = new Node();
+}
+
+Node& Node::operator=(const Node& node) {
+    if (this == &node)
+        return *this;
+    value = node.value;
+    color = node.color;
+    left = new Node();
+    right = new Node();
+    parent = new Node();
 
     return *this;
 }
 
 bool Node::operator==(const Node& node) {
-    if (value == node.value && left == node.left && right == node.right
-        && parent == node.parent && color == node.color)
+    if (value == node.value && color == node.color)
         return true;
 
     return false;
