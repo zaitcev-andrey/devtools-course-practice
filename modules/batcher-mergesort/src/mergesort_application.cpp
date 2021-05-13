@@ -49,11 +49,9 @@ std::string MergeSortApplication::operator()(int argc,
         return help(argv[0]);
     }
 
-    int size;
-
     try {
         if (argc == 2) {
-            size = checkPositiveNumber(argv[1]);
+            int size = checkPositiveNumber(argv[1]);
             if (!checkDegreeOfTwo(size))
                 throw std::runtime_error("ERROR: " + std::string(argv[1]) +
                     " is not equal of degree of two\n\n");
@@ -68,7 +66,7 @@ std::string MergeSortApplication::operator()(int argc,
             }
             return stream.str();
         } else {
-            size = argc - 1;
+            int size = argc - 1;
             if (!checkDegreeOfTwo(size)) {
                 throw std::runtime_error
                 ("ERROR: count of numbers is not equal of degree of two\n\n");
