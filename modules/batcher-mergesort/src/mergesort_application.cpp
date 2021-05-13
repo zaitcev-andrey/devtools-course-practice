@@ -50,7 +50,6 @@ std::string MergeSortApplication::operator()(int argc,
     }
 
     int size;
-    std::vector<double> vec;
 
     try {
         if (argc == 2) {
@@ -58,16 +57,23 @@ std::string MergeSortApplication::operator()(int argc,
             if (!checkDegreeOfTwo(size))
                 throw std::runtime_error("ERROR: " + std::string(argv[1]) +
                     " is not equal of degree of two\n\n");
-            vec.resize(size);
+            std::vector<double> vec(size);
             for (int i = 0; i < size; i++)
                 vec[i] = size - i;
+            MergeSort::OddEvenMergeSort(&vec, 0, size - 1);
+            std::ostringstream stream;
+            stream << "Sorted vector: ";
+            for (size_t i = 0; i < vec.size(); i++) {
+                stream << vec[i] << " ";
+            }
+            return stream.str();
         } else {
             size = argc - 1;
             if (!checkDegreeOfTwo(size)) {
                 throw std::runtime_error
                 ("ERROR: count of numbers is not equal of degree of two\n\n");
             }
-            vec.resize(size);
+            std::vector<double> vec(size);
             for (int i = 0; i < size; i++) {
                 std::stringstream convert(argv[i + 1]);
                 double num;
@@ -77,14 +83,14 @@ std::string MergeSortApplication::operator()(int argc,
                 }
                 vec[i] = num;
             }
+            MergeSort::OddEvenMergeSort(&vec, 0, size - 1);
+            std::ostringstream stream;
+            stream << "Sorted vector: ";
+            for (size_t i = 0; i < vec.size(); i++) {
+                stream << vec[i] << " ";
+            }
+            return stream.str();
         }
-        MergeSort::OddEvenMergeSort(&vec, 0, size - 1);
-        std::ostringstream stream;
-        stream << "Sorted vector: ";
-        for (size_t i = 0; i < vec.size(); i++) {
-            stream << vec[i] << " ";
-        }
-        return stream.str();
     } catch(const std::exception& e) {
         return e.what() + help(argv[0]);
     }
