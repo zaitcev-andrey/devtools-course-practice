@@ -50,42 +50,33 @@ std::string MergeSortApplication::operator()(int argc,
     }
 
     int size;
-    if (argc == 2) {
-        try {
+    std::vector<double> vec;
+
+    try {
+        if (argc == 2) {
             size = checkPositiveNumber(argv[1]);
             if (!checkDegreeOfTwo(size))
                 throw std::runtime_error("ERROR: " + std::string(argv[1]) +
                     " is not equal of degree of two\n\n");
-            std::vector<double> vec(size);
+            vec.resize(size);
             for (int i = 0; i < size; i++)
                 vec[i] = size - i;
-            MergeSort::OddEvenMergeSort(&vec, 0, size - 1);
-            std::ostringstream stream;
-            stream << "Sorted vector: ";
-            for (size_t i = 0; i < vec.size(); i++) {
-                stream << vec[i] << " ";
+        } else {
+            size = argc - 1;
+            if (!checkDegreeOfTwo(size)) {
+                throw std::runtime_error
+                ("ERROR: count of numbers is not equal of degree of two\n\n");
             }
-            return stream.str();
-        } catch(const std::exception& e) {
-            return e.what() + help(argv[0]);
-        }
-    }
-
-    try {
-        size = argc - 1;
-        if (!checkDegreeOfTwo(size)) {
-            throw std::runtime_error
-            ("ERROR: count of numbers is not equal of degree of two\n\n");
-        }
-        std::vector<double> vec(size);
-        for (int i = 0; i < size; i++) {
-            std::stringstream convert(argv[i + 1]);
-            double num;
-            if (!(convert >> num)) {
-                throw std::runtime_error("ERROR: " + std::string(argv[i + 1]) +
-                    " is invalid argument\n\n");
+            vec.resize(size);
+            for (int i = 0; i < size; i++) {
+                std::stringstream convert(argv[i + 1]);
+                double num;
+                if (!(convert >> num)) {
+                    throw std::runtime_error("ERROR: " +
+                        std::string(argv[i + 1]) + " is invalid argument\n\n");
+                }
+                vec[i] = num;
             }
-            vec[i] = num;
         }
         MergeSort::OddEvenMergeSort(&vec, 0, size - 1);
         std::ostringstream stream;

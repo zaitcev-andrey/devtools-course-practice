@@ -10,9 +10,9 @@ class MergeSortApplication {
      MergeSortApplication() = default;
      std::string operator()(int argc, const char* argv[]) const;
  private:
-     bool checkDegreeOfTwo(int number) const;
-     int checkPositiveNumber(const char* argv) const;
      std::string help(const std::string& filename) const;
+     int checkPositiveNumber(const char* argv) const;
+     bool checkDegreeOfTwo(int number) const;
 };
 
 #endif  // MODULES_BATCHER_MERGESORT_INCLUDE_MERGESORT_APPLICATION_H_
