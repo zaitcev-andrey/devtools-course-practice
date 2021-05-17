@@ -39,8 +39,7 @@ bool MergeSortApplication::checkDegreeOfTwo(int number) const {
         number /= 2;
     if (number != 0 && number != 1)
         return false;
-    else
-        return true;
+    return true;
 }
 
 std::string MergeSortApplication::operator()(int argc,
